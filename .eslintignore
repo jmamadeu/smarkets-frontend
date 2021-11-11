@@ -2,3 +2,5 @@ node_modules
 **/*.js
 build
 out
+vite-env.d.ts
+*.d.ts

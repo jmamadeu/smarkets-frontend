@@ -7,7 +7,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
@@ -18,7 +19,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', 'react-hooks', 'simple-import-sort', 'import', '@typescript-eslint'],
   rules: {
     'arrow-parens': 'off',
     'import/extensions': 'off',
@@ -32,32 +33,32 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
-    'simple-import-sort/imports': 'error',
-    'sort-imports': 'off',
-    'import/first': 'error',
-    'import/newline-after-import': 'error',
-    'import/no-duplicates': 'error',
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/state-in-constructor': 'off',
     'no-param-reassign': 'off',
     'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': ['error'],
-    '@typescript-eslint/no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars-experimental': 'error',
-    'no-unused-vars': 'off',
+
     'react/style-prop-object': 'off',
-    'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
-    'import/no-extraneous-dependencies': ['off', { devDependencies: true }],
-    'import/prefer-default-export': 'off',
+    "import/no-unresolved": "error"
   },
   settings: {
     'import/resolver': {
       typescript: {},
+    },
+    react: {
+      version: 'detected',
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
   },
 };
