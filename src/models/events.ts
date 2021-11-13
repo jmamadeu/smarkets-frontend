@@ -28,6 +28,6 @@ export type EventProperties = {
   type: string;
 };
 
-export type EventsProperties = {
+export type EventsPropertiesResponse = {
   events: EventProperties[];
 };
