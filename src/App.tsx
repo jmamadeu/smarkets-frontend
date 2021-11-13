@@ -1,13 +1,7 @@
-import { usePopularEventIds } from './hooks/use-popular-event-ids';
+import { SideBar } from './components/side-bar';
 
 function App() {
-  const { data } = usePopularEventIds();
-  console.log(data, 'teste');
-  return (
-    <div>
-      <h1>Project init</h1>
-    </div>
-  );
+  return <SideBar />;
 }
 
 export default App;

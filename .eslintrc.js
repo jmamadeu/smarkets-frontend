@@ -21,18 +21,14 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', 'simple-import-sort', 'import', '@typescript-eslint'],
   rules: {
+    "prettier/prettier": ["error", {}, {
+      "usePrettierrc": true,
+      "trailingComma": "none",
+    }],
     'arrow-parens': 'off',
     'import/extensions': 'off',
     'import/order': 'off',
-    semi: 0,
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
-    'prettier/prettier': [
-      'error',
-      {
-        semi: true,
-        endOfLine: 'auto',
-      },
-    ],
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',

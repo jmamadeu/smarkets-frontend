@@ -1,10 +1,9 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import { render } from 'react-dom';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClientProvider } from 'react-query';
 import App from './App';
-
-const queryClient = new QueryClient();
+import { queryClient } from './services/react-query';
 
 render(
   <React.StrictMode>
@@ -14,5 +13,5 @@ render(
       </QueryClientProvider>
     </ChakraProvider>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

@@ -2,13 +2,13 @@ import { extendTheme } from '@chakra-ui/react';
 import { globalStyles } from './styles';
 
 export const FONTS = {
-  body: 'Inter',
+  body: 'Inter'
 };
 
 const overrides = {
   fonts: FONTS,
   ...globalStyles,
-  components: {},
+  components: {}
 };
 
 export default extendTheme(overrides);
