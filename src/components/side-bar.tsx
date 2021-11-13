@@ -27,7 +27,7 @@ type MenuProps = {
 
 export function SideBar({ getCurrentMenu }: SideBarProps) {
   const [currentMenu, setCurrentMenu] = useState<MenuProps>(EVENTS_TYPES[0]);
-  const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
   useEffect(() => {
