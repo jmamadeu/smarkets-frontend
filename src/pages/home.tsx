@@ -6,6 +6,7 @@ import {
   Box,
   CloseButton,
   Container,
+  Link as StyledLink,
   Spinner,
   Table,
   TableCaption,
@@ -17,6 +18,7 @@ import {
   Tr
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { v4 } from 'uuid';
 import { SideBar } from '../components/side-bar';
 import { useEvents } from '../hooks/use-events';
@@ -57,25 +59,39 @@ export function Home() {
             <Text fontSize="2xl" marginBottom={8} textAlign="center">
               See the latest {selectedEvent.name} events
             </Text>
-            <Table variant="striped" colorScheme="teal" size="lg">
-              <TableCaption>the latest events</TableCaption>
-              <Thead>
-                <Tr>
-                  <Th>Name</Th>
-                  <Th>State</Th>
-                  <Th>Start Data</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {events?.map((event) => (
-                  <Tr key={v4()}>
-                    <Td>{event?.name}</Td>
-                    <Td>{event?.state}</Td>
-                    <Td>{event?.start_date}</Td>
+            {events?.length ? (
+              <Table variant="striped" colorScheme="teal" size="lg">
+                <TableCaption>
+                  To see more details click on event name
+                </TableCaption>
+                <Thead>
+                  <Tr>
+                    <Th>Name</Th>
+                    <Th>State</Th>
+                    <Th>Start Data</Th>
                   </Tr>
-                ))}
-              </Tbody>
-            </Table>
+                </Thead>
+                <Tbody>
+                  {events?.map((event) => (
+                    <Tr key={v4()}>
+                      <Td>
+                        <Link to={`/event/${event.id}`}>
+                          <StyledLink as="span">{event?.name} </StyledLink>
+                        </Link>
+                      </Td>
+
+                      <Td>{event?.state}</Td>
+                      <Td>{event?.start_date}</Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+              </Table>
+            ) : (
+              <Alert status="warning">
+                <AlertIcon />
+                Seems like there&apos;s no events from this sport type
+              </Alert>
+            )}
           </>
         )}
       </Container>
